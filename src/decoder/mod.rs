@@ -132,6 +132,12 @@ where
     pub fn new_wav(data: R) -> Result<Decoder<R>, DecoderError> {
         Decoder::new_symphonia(data, "wav")
     }
+    
+    /// Builds a new decoder from pcm data.
+    #[cfg(feature = "symphonia-wav")]
+    pub fn new_pcm(data: R) -> Result<Decoder<R>, DecoderError> {
+        Decoder::new_symphonia(data, "pcm")
+    }
 
     /// Builds a new decoder from flac data.
     #[cfg(all(feature = "flac", not(feature = "symphonia-flac")))]
