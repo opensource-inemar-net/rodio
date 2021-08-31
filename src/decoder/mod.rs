@@ -134,9 +134,9 @@ where
     }
     
     /// Builds a new decoder from pcm data.
-    #[cfg(feature = "symphonia-wav")]
-    pub fn new_pcm(data: R) -> Result<Decoder<R>, DecoderError> {
-        Decoder::new_symphonia(data, "pcm")
+    #[cfg(feature = "symphonia-all")]
+    pub fn new_any(data: R,hint:&str) -> Result<Decoder<R>, DecoderError> {
+        Decoder::new_symphonia(data, hint)
     }
 
     /// Builds a new decoder from flac data.
